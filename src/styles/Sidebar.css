@@ -1,0 +1,15 @@
+.sidebar{
+    background-color: #A0522D;
+    width: 250px;
+    height: auto;
+    margin-top: -21px;
+    text-align: center;
+}
+.sidebar h4{
+color: white;
+cursor: pointer;
+border: 1px white solid;
+padding: 4px;
+
+
+}

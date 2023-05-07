@@ -1,0 +1,27 @@
+.form-div{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   background-color: rgb(190, 175, 175);
+    align-items: center;
+    margin-right: 300px;
+    border-radius: 25px;
+    margin-left: 400px;
+}
+
+.form-div input{
+    margin-top: 15px;
+}
+
+.form-div textarea{
+    margin-top: 15px;
+}
+
+.form-div select{
+    margin-top: 15px;
+}
+.form-div button{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

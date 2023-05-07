@@ -1,12 +1,18 @@
 import React from "react";
-
+import '../styles/Header.css'
 const Header = ()=>{
 return(
     <>
-    <h3>
-    Welcome to FoodFolio 
+<header className="header-css">
+    <h3 className="header-title">
+        Welcome to FoodFolio....
     </h3>
+    <h6 className="header-tagline">
+        memories you can taste :)
+    </h6>
     
+
+</header>
     </>
 )
 
