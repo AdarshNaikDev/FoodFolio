@@ -1,17 +1,16 @@
-import Header from './Components/Header';
-import AddRecipeForm from './Components/AddRecipeForm';
-import SideBar from './Components/SideBar';
-import './App.css'
+import React from "react";
+import { Route,Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import ViewRecipe from "./Components/ViewRecipe";
+
 function App() {
   return (
-    <>
-    <Header/>
-    <div className='side-by-side'>
-    <SideBar/>
-    <AddRecipeForm/>
-    </div>
-    
-    </>
+    <Routes>
+      <Route path='/' element={<Home/>}/> 
+      <Route path='/view-recipes' element={<ViewRecipe/>}/>
+     
+    </Routes>
+   
   );
 }
 
