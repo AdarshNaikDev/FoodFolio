@@ -4,28 +4,48 @@ import { useDispatch } from 'react-redux';
 import {addRecipeObj} from '../Store/RecipeDataSlice';
 function AddRecipeForm() {
   const dispatch = useDispatch();
+//  const[imageData, setImageData] = useState(null)
   const[recipeFrmData,setRecipeFrmData] = useState({
     recipeName:"",ingredientList:"", cookingSteps:"",prepareTime:"", level:"",rCategory:"",originFrom:"",serves:"", image:"",rating:"",
     authorName:"",dateCreated:""
   })
 let name ,value;
   function handleInput(e){
-  console.log(e);
+    
     name = e.target.name;
     value = e.target.value;
     setRecipeFrmData({...recipeFrmData, [name]:value })
+    
+   
+  }
+
+  function handleImageInput(e)
+  {
+   console.log("image obj",e.target.files[0])
+    const imageURL = URL.createObjectURL(e.target.files[0])
+    console.log(imageURL);
+    setRecipeFrmData({...recipeFrmData, [e.target.name]:imageURL})
+    
+  
   }
 
   const submitRecipe = ()=>{
+   
     dispatch(addRecipeObj(recipeFrmData))
+    
   }
+
 
   useEffect(()=>{
     console.log("event triggered as form state changed")
     console.log(recipeFrmData)
   },[recipeFrmData])
+
+ 
+
   return (
-    
+    <>
+  
       <div className='form-div'>
         <input type='text' placeholder='Recipe name' name='recipeName' value={recipeFrmData.recipeName} onChange={handleInput}/>
         <textarea placeholder='Ingredients list' name='ingredientList'value={recipeFrmData.ingredientList}onChange={handleInput}/>
@@ -52,12 +72,20 @@ let name ,value;
           <option>Mexican</option>
         </select>
         <input type='text' placeholder='serving size' name='serves' value={recipeFrmData.serves} onChange={handleInput}/>
-        <input type = 'file' placeholder='Recipe photo/image' name='image' value={recipeFrmData.image} onChange={handleInput}/>
+        <input type = 'file' placeholder='Recipe photo/image' name='image' onChange={handleImageInput}/>
         <input type = 'text' placeholder='Rating' name='rating' value={recipeFrmData.rating} onChange={handleInput}/>
         <input type='text' placeholder='Author name' name='authorName' value={recipeFrmData.authorName} onChange={handleInput}/>
         <input type = 'date' placeholder='Date Created' name='dateCreated' value={recipeFrmData.dateCreated} onChange={handleInput}/>
         <button onClick={submitRecipe}>Add Recipe</button>
       </div>
+      <div>
+       {/* <input type = 'file' placeholder='Recipe photo/image' name='image'  onChange={handleImageInput}/>
+     
+
+     { <img height={100} width={100} src={imageData} /> } */}
+      </div>
+      </>
+     
       
     
   )

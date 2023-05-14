@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const RecipeDataSlice = createSlice({
+const RecipeDataSlice = createSlice({ // your slice
   name: 'recipeData',
   initialState: {
     value: []
   },
-  reducers: {
+  reducers: { // recipe data reducer
    
-    addRecipeObj : (state, action) =>{
+    addRecipeObj : (state, action) =>{ //Action 
         state.value.push(action.payload)
     }
    
